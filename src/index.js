@@ -413,6 +413,10 @@ function sortTemplateLiteral(node, { env }) {
       env,
       ignoreFirst: i > 0 && !/^\s/.test(quasi.value.raw),
       ignoreLast: i < node.expressions.length && !/\s$/.test(quasi.value.raw),
+      tidyWhitespace: {
+        start: i === 0,
+        end: i >= node.expressions.length,
+      },
     })
 
     quasi.value.cooked = same
@@ -422,6 +426,10 @@ function sortTemplateLiteral(node, { env }) {
           ignoreFirst: i > 0 && !/^\s/.test(quasi.value.cooked),
           ignoreLast:
             i < node.expressions.length && !/\s$/.test(quasi.value.cooked),
+          tidyWhitespace: {
+            start: i === 0,
+            end: i >= node.expressions.length,
+          },
         })
 
     if (
@@ -775,6 +783,10 @@ function transformSvelte(ast, { env, changes }) {
           env,
           ignoreFirst: i > 0 && !/^\s/.test(value.raw),
           ignoreLast: i < attr.value.length - 1 && !/\s$/.test(value.raw),
+          tidyWhitespace: {
+            start: i === 0,
+            end: i >= attr.value.length - 1,
+          },
         })
         value.data = same
           ? value.raw
@@ -782,6 +794,10 @@ function transformSvelte(ast, { env, changes }) {
               env,
               ignoreFirst: i > 0 && !/^\s/.test(value.data),
               ignoreLast: i < attr.value.length - 1 && !/\s$/.test(value.data),
+              tidyWhitespace: {
+                start: i === 0,
+                end: i >= attr.value.length - 1,
+              },
             })
       } else if (value.type === 'MustacheTag') {
         visit(value.expression, {
