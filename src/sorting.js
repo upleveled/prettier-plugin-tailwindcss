@@ -41,7 +41,12 @@ function getClassOrderPolyfill(classes, { env }) {
 
 export function sortClasses(
   classStr,
-  { env, ignoreFirst = false, ignoreLast = false },
+  {
+    env,
+    ignoreFirst = false,
+    ignoreLast = false,
+    tidyWhitespace = { start: true, end: true },
+   },
 ) {
   if (typeof classStr !== 'string' || classStr === '') {
     return classStr
@@ -62,6 +67,10 @@ export function sortClasses(
     classes.pop()
   }
 
+  if (tidyWhitespace) {
+    whitespace = whitespace.map(() => ' ')
+  }
+
   let prefix = ''
   if (ignoreFirst) {
     prefix = `${classes.shift() ?? ''}${whitespace.shift() ?? ''}`
@@ -72,10 +81,25 @@ export function sortClasses(
     suffix = `${whitespace.pop() ?? ''}${classes.pop() ?? ''}`
   }
 
+  // Remove duplicates
+  classes = classes.filter((cls, index, arr) => {
+    if (arr.indexOf(cls) === index) {
+      return true
+    }
+    whitespace.splice(index - 1, 1)
+    return false
+  })
+
   classes = sortClassList(classes, { env })
 
   for (let i = 0; i < classes.length; i++) {
     result += `${classes[i]}${whitespace[i] ?? ''}`
+  }
+
+  if (tidyWhitespace) {
+    result = result
+      .replace(/^\s+/, tidyWhitespace.start ? '' : ' ')
+      .replace(/\s+$/, tidyWhitespace.end ? '' : ' ')
   }
 
   return prefix + result + suffix
