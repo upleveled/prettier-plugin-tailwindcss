@@ -11,10 +11,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss"
+    "url": "https://github.com/upleveled/prettier-plugin-tailwindcss"
   },
   "bugs": {
-    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues"
+    "url": "https://github.com/upleveled/prettier-plugin-tailwindcss/issues"
   },
   "scripts": {
     "_pre": "rimraf dist && cpy 'node_modules/tailwindcss/lib/css/*' dist/css",
