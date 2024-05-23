@@ -1,13 +1,15 @@
 <img src="https://raw.githubusercontent.com/tailwindlabs/prettier-plugin-tailwindcss/main/.github/banner.jpg" alt="prettier-plugin-tailwindcss" />
 
+`@upleveled/prettier-plugin-tailwindcss` is a fork of the original `prettier-plugin-tailwindcss` to add back [the whitespace removal and duplicate classes removal features](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/pull/70)
+
 A [Prettier v3+](https://prettier.io/) plugin for Tailwind CSS v3.0+ that automatically sorts classes based on [our recommended class order](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
 
 ## Installation
 
-To get started, install `prettier-plugin-tailwindcss` as a dev-dependency:
+To get started, install `@upleveled/prettier-plugin-tailwindcss` as a dev-dependency:
 
 ```sh
-npm install -D prettier prettier-plugin-tailwindcss
+npm install -D prettier @upleveled/prettier-plugin-tailwindcss
 ```
 
 Then add the plugin to your [Prettier configuration](https://prettier.io/docs/en/configuration.html):
@@ -15,7 +17,7 @@ Then add the plugin to your [Prettier configuration](https://prettier.io/docs/en
 ```json5
 // .prettierrc
 {
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["@upleveled/prettier-plugin-tailwindcss"]
 }
 ```
 
@@ -159,7 +161,7 @@ This plugin uses Prettier APIs that can only be used by one plugin at a time, ma
 - `prettier-plugin-svelte`
 - `prettier-plugin-sort-imports`
 
-One limitation with this approach is that `prettier-plugin-tailwindcss` *must* be loaded last.
+One limitation with this approach is that `@upleveled/prettier-plugin-tailwindcss` *must* be loaded last.
 
 ```json5
 // .prettierrc
@@ -168,7 +170,7 @@ One limitation with this approach is that `prettier-plugin-tailwindcss` *must* b
   "plugins": [
     "prettier-plugin-svelte",
     "prettier-plugin-organize-imports",
-    "prettier-plugin-tailwindcss" // MUST come last
+    "@upleveled/prettier-plugin-tailwindcss" // MUST come last
   ]
 }
 ```
