@@ -2,6 +2,8 @@
 
 `@upleveled/prettier-plugin-tailwindcss` is a fork of the original `prettier-plugin-tailwindcss` to add back [the whitespace removal and duplicate classes removal features](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/pull/70)
 
+https://github.com/upleveled/prettier-plugin-tailwindcss/assets/1935696/8709aa28-70c5-486f-b47c-2cbeac4e1db6
+
 A [Prettier v3+](https://prettier.io/) plugin for Tailwind CSS v3.0+ that automatically sorts classes based on [our recommended class order](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
 
 ## Installation
