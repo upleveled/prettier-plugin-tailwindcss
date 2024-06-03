@@ -1,4 +1,8 @@
-<img src="https://raw.githubusercontent.com/tailwindlabs/prettier-plugin-tailwindcss/main/.github/banner.jpg" alt="prettier-plugin-tailwindcss" />
+## DEPRECATED
+
+The official package version `prettier-plugin-tailwindcss@0.6.0` includes the whitespace removal and duplicate classes removal features:
+
+- https://github.com/tailwindlabs/prettier-plugin-tailwindcss/releases/tag/v0.6.0
 
 `@upleveled/prettier-plugin-tailwindcss` is a fork of the original `prettier-plugin-tailwindcss` to add back [the whitespace removal and duplicate classes removal features](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/pull/70)
 
